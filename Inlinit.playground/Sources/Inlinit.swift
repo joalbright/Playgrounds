@@ -33,6 +33,11 @@ public extension Dictionit {
     
 }
 
+infix operator <-- { }
+
+public func <-- <T>(inout left:T?, right: AnyObject?) { left = right as? T }
+public func <-- <T>(inout left:T, right: AnyObject?) { left = right as! T }
+
 // MARK: Extensions
 
 extension Array: Inlinit { }
