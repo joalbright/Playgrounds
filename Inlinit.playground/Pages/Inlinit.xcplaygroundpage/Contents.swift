@@ -1,13 +1,5 @@
 import UIKit
 
-protocol Inlinit { init() }
-
-extension Inlinit {
-
-    init(@noescape b: inout Self -> Void) { self.init(); b(&self) }
-    
-}
-
 struct Person: Inlinit {
     
     enum GenderType: String { case Male, Female }
@@ -18,10 +10,7 @@ struct Person: Inlinit {
     
 }
 
-let you = Person(age: 32, gender: .Male, name: "JO")
-
-
-let me = Person {
+var me = Person {
     
     $0.name = "Jo"
     $0.age = 32
@@ -29,9 +18,18 @@ let me = Person {
     
 }
 
-me.age // 32
+me <- {
+    
+    $0.age = 30
+    $0.name = "John"
+    
+}
 
-extension Array: Inlinit { }
+let you = Person(age: 32, gender: .Male, name: "JO")
+
+
+me.age // 32
+me.name
 
 let randomIntArray = [Int] {
     
@@ -97,4 +95,9 @@ let vc = ViewController()
 vc.loadViewIfNeeded()
 
 vc.view.subviews
+
+
+
+
+
 
