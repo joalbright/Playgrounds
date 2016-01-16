@@ -7,7 +7,7 @@ struct Person: Inlinit {
     var age: Int = 0
     var gender: GenderType?
     var name: String?
-    
+        
 }
 
 var me = Person {
