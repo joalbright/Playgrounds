@@ -18,7 +18,7 @@ func <- <T,R>(lhs: R -> T, rhs: R) -> T {
 
 var first: (Void -> Any) -> Any = {
     
-    return $0()
+    return "\($0()) haha"
     
 }
 
@@ -28,5 +28,13 @@ var second: Void -> Any = {
     
 }
 
+var third: Void -> Any = {
+    
+    return "hello"
+    
+}
+
 first <- second
+
+first <- third
 
